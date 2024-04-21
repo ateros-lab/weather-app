@@ -1,21 +1,16 @@
-import { useRef } from 'react';
-import './App.css';
-import { getWeather } from './store/weatherSlice';
-import { useDispatch } from 'react-redux';
+import ChartBlock from "./components/ChartBlock";
+import InputBlock from "./components/InputBlock";
+import LoadingStatus from "./components/LoadingStatus";
+import OutputBlock from "./components/OutputBlock";
 
 function App() {
-
-  let inputRef = useRef(null);
-  const dispatch = useDispatch();
-  const clickHandler = () => {
-    dispatch(getWeather(inputRef.current.value));
-  }
-
   return (
-    <div>
-      <input ref={inputRef} placeholder="City name" />
-      <button onClick={clickHandler}>Button</button>
-    </div>
+    <>
+      <InputBlock />
+      <ChartBlock />
+      <LoadingStatus />
+      <OutputBlock />
+    </>
   );
 }
 
